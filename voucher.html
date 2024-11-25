@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voucher</title>
+
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 24px 24px;
+      }
+
+      .header-voucher {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .voucher_data {
+        width: 560px;
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .voucher_data p {
+        margin-top: 8px;
+      }
+
+      .voucher_data p:last-child {
+        margin-top: 17px;
+        margin-bottom: 15px;
+        border-bottom: 1px black solid;
+      }
+
+      .logo {
+        align-self: start;
+        height: 50px;
+      }
+
+      .passengers-section {
+        margin-top: 26px;
+        margin-bottom: 8px;
+        width: 100%;
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .passengers-section h1 {
+        font-weight: bold;
+        font: 16px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .table-border {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-top: 14px;
+      }
+
+      .passengers-section .table {
+        text-align: center;
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 2px;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .passengers-section .table th.head:nth-child(odd) {
+        background-color: #00000033;
+        border-top-left-radius: 2px;
+      }
+
+      .passengers-section .table th.head {
+        background-color: #00000033;
+      }
+
+      .tripinfo-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 14px;
+        width: 100%;
+        align-items: center;
+      }
+
+      .tripinfo-section {
+        margin-top: 26px;
+        margin-bottom: 8px;
+        width: 100%;
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .tripinfo-section h1 {
+        font-weight: bold;
+        font: 16px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .tripinfo-data {
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+        width: 100%;
+      }
+
+      /* .tripinfo p:first-child {
+        margin-top: 8px;
+      }
+
+      .tripinfo p:last-child {
+        margin-top: 17px;
+        margin-bottom: 15px;
+        border-bottom: 1px black solid;
+      } */
+
+      .tripinfo .table {
+        text-align: center;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-radius: 2px;
+        display: block;
+      }
+
+      .tripinfo-data .table th.head {
+        width: 30%;
+        background-color: #00000033;
+        border-radius: 2px;
+      }
+
+      .tripinfo-data .table td.data {
+        padding-left: 20px;
+      }
+
+      .tripinfo-map {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .tripinfo-map img {
+        width: 48%;
+      }
+
+      .transfer-section {
+        margin-top: 26px;
+        margin-bottom: 8px;
+        width: 100%;
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .transfer-section h1 {
+        font-weight: bold;
+        font: 16px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .transfer-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        width: 100%;
+        background-color: #6c967233;
+        margin-top: 14px;
+        border-radius: 2px;
+      }
+
+      .transfer-data p {
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+        padding: 3px 10px;
+      }
+
+      .transfer-contacts {
+        justify-content: center;
+      }
+
+      .transfer-contacts_wrapper {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+      }
+
+      .transfer-contacts_item {
+        display: flex;
+        align-items: center;
+        width: 33%;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .transfer-contacts_item h2 {
+        color: #6c9672;
+        margin-bottom: 0;
+      }
+
+      .transfer-contacts_item p {
+        margin-bottom: 0;
+        padding: 0;
+      }
+
+      .addinfo-section {
+        margin-top: 26px;
+        margin-bottom: 8px;
+        width: 100%;
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .addinfo-section h1 {
+        font-weight: bold;
+        font: 16px "Inter", sans-serif;
+        font-weight: bold;
+      }
+
+      .addinfo-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        width: 100%;
+        background-color: #6c967233;
+        margin-top: 14px;
+        border-radius: 2px;
+      }
+
+      .addinfo-data p {
+        display: block;
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+        padding: 3px 10px;
+      }
+
+      .footer-container {
+        font: 12px "Inter", sans-serif;
+        font-weight: bold;
+        width: 100%;
+      }
+
+      .footer-container .table {
+        text-align: center;
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 2px;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+     .footer-container .table td {
+        padding: 8px;
+        border: 1px #000;
+      }
+
+      .footer-container .table td.head:nth-child(odd) {
+        background-color: #00000033;
+        border-top-left-radius: 2px;
+      }
+
+      .footer-container .logo {
+        align-self: start;
+        height: 30px;
+      }
+
+      .footer-container .qr {
+        align-self: ;
+        height: 80px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header-voucher">
+        <div class="voucher_data">
+          <p>Заявка №:</p>
+          <p>Референс перевізника:</p>
+          <p class="agency">ТОВ:</p>
+        </div>
+        <div class="voucher_logo">
+          <img class="logo" src="/logo_gr copy 3 1.png" />
+        </div>
+      </section>
+      <section class="passengers-section">
+        <h1>Пасажири:</h1>
+        <div class="table-border">
+          <table rules="all" class="table">
+            <thead class="table_head">
+              <tr>
+                <th class="head" scope="col">Surname</th>
+                <th class="head" scope="col">Date of birth</th>
+                <th class="head" scope="col">Passport</th>
+                <tbody>
+                  <tr>
+                    <th scope="row">Leonardo Da Vinci</th>
+                    <td>20.12.1995</td>
+                    <td>FF705504</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Leonardo Da Vinci Leonardo Da Vinci</th>
+                    <td>20.12.1995</td>
+                    <td>FF705504</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Name</th>
+                    <td>20.12.1995</td>
+                    <td>FF705504</td>
+                  </tr>
+                </tbody>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </section>
+      <section class="tripinfo-section">
+        <h1>Дані поїздки:</h1>
+        <div class="tripinfo-container">
+          <div class="tripinfo-data">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th class="head" scope="row">Тип трансфера:</th>
+                  <td class="data">Shared shuttle</td>
+                </tr>
+                <tr>
+                  <th class="head" scope="row">Звідки:</th>
+                  <td class="data">Novima Jardin Caleta, Tenerife</td>
+                </tr>
+                <tr>
+                  <th class="head" scope="row">Куди:</th>
+                  <td class="data">
+                    Tenerife South Airport (Reina Sofia) (TFS)
+                  </td>
+                </tr>
+                <tr>
+                  <th class="head" scope="row">Дата/час:</th>
+                  <td class="data">Nov 6, 2024 at 12:10</td>
+                </tr>
+                <tr>
+                  <th class="head" scope="row">Номер рейсу:</th>
+                  <td class="data">FR7563</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tripinfo-map"><img width="120px" src="/map.png" /></div>
+        </div>
+      </section>
+      <section class="transfer-section">
+        <h1>Інструкція по трансферу:</h1>
+        <div class="transfer-container">
+          <div class="transfer-data">
+            <p>Transfer provided by:</p>
+            <p>
+              What to do when leaving: HOVIMA Jardin Caleta, S.L. (Tenerife)
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div class="transfer-contacts">
+              <ul class="transfer-contacts_wrapper">
+                <li class="transfer-contacts_item">
+                  <img src="./chat.png" height="32" />
+                  <div>
+                    <h2>Life Chat</h2>
+                    <p>Contact us online</p>
+                  </div>
+                </li>
+                <li class="transfer-contacts_item">
+                  <img src="./whatsapp.png" height="32" />
+                  <div>
+                    <h2>WhatsApp</h2>
+                    <p>0044 1373 489007</p>
+                  </div>
+                </li>
+                <li class="transfer-contacts_item">
+                  <img src="./pick.png" height="32" />
+                  <div>
+                    <h2>Pickup times</h2>
+                    <p>0044 14830802408</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="addinfo-section">
+        <h1>Додаткова інформація:</h1>
+        <div class="addinfo-container">
+          <div class="addinfo-data">
+            <p>
+              Норми перевезення багажу: 2 suitcases and 2 holdall per vehicle
+            </p>
+            <p>
+              Безкоштовний час очікування включено: в аеропортах, морських та
+              річкових пасажирських портах - 60 хвилин, на залізничних станціях
+              - 30 хвилин, у всіх інших місцях - 15 хвилин.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum.
+            </p>
+            <p>Примітки: додатково везуть дитячий візочок</p>
+          </div>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="footer-container">
+          <div class="table-border">
+          <table class="table">
+            <tr>
+              <td class="head" colspan="3">Touroperatop/туроператор</td>
+            </tr>
+            <tr>
+              <td><img class="logo" src="/logo_gr copy 3 1.png" alt=""></td>
+              <td>contacts</td>
+              <td><img class="qr" src="/image.png" alt=""></td>
+            </tr>
+          </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
